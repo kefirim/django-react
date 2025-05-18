@@ -8,8 +8,11 @@ from base.models import Product, Order, OrderItem, ShippingAddress
 from base.serializers import ProductSerializer, OrderSerializer
 
 from rest_framework import status
+<<<<<<< HEAD
 from datetime import datetime
 
+=======
+>>>>>>> 2d0e5b5859a900e9b7dc8af44d1896a5e9f4b610
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
@@ -19,7 +22,11 @@ def addOrderItems(request):
 
     orderItems = data['orderItems']
 
+<<<<<<< HEAD
     if orderItems and len(orderItems) == 0:
+=======
+    if not orderItems:
+>>>>>>> 2d0e5b5859a900e9b7dc8af44d1896a5e9f4b610
         return Response({'detail': 'No Order Items'}, status=status.HTTP_400_BAD_REQUEST)
     else:
 
@@ -64,6 +71,7 @@ def addOrderItems(request):
         serializer = OrderSerializer(order, many=False)
         return Response(serializer.data)
 
+<<<<<<< HEAD
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
@@ -82,6 +90,8 @@ def getOrders(request):
     return Response(serializer.data)
 
 
+=======
+>>>>>>> 2d0e5b5859a900e9b7dc8af44d1896a5e9f4b610
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def getOrderById(request, pk):
@@ -99,6 +109,16 @@ def getOrderById(request, pk):
     except:
         return Response({'detail': 'Order does not exist'}, status=status.HTTP_400_BAD_REQUEST)
 
+<<<<<<< HEAD
+=======
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def getMyOrders(request):
+    user = request.user
+    orders = user.order_set.all()
+    serializer = OrderSerializer(orders, many=True)
+    return Response(serializer.data)
+>>>>>>> 2d0e5b5859a900e9b7dc8af44d1896a5e9f4b610
 
 @api_view(['PUT'])
 @permission_classes([IsAuthenticated])
@@ -111,6 +131,7 @@ def updateOrderToPaid(request, pk):
 
     return Response('Order was paid')
 
+<<<<<<< HEAD
 
 @api_view(['PUT'])
 @permission_classes([IsAdminUser])
@@ -122,3 +143,5 @@ def updateOrderToDelivered(request, pk):
     order.save()
 
     return Response('Order was delivered')
+=======
+>>>>>>> 2d0e5b5859a900e9b7dc8af44d1896a5e9f4b610

@@ -9,8 +9,12 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
+<<<<<<< HEAD
 import os
 import dj_database_url
+=======
+
+>>>>>>> 2d0e5b5859a900e9b7dc8af44d1896a5e9f4b610
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -26,7 +30,11 @@ SECRET_KEY = 'django-insecure-pcc9v3p*vepdf%kpdt3p-b+os*&vvu^+jtj_875=_82ez=7_@7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+<<<<<<< HEAD
 ALLOWED_HOSTS = ['*']
+=======
+ALLOWED_HOSTS = []
+>>>>>>> 2d0e5b5859a900e9b7dc8af44d1896a5e9f4b610
 
 
 # Application definition
@@ -41,10 +49,13 @@ INSTALLED_APPS = [
     'rest_framework',
     "corsheaders",
 
+<<<<<<< HEAD
     'cloudinary',
     'cloudinary_storage',
     'storages',
 
+=======
+>>>>>>> 2d0e5b5859a900e9b7dc8af44d1896a5e9f4b610
     'base.apps.BaseConfig',
 
 ]
@@ -114,9 +125,13 @@ ROOT_URLCONF = 'backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+<<<<<<< HEAD
         'DIRS': [
             os.path.join(BASE_DIR, 'frontend/build')
         ],
+=======
+        'DIRS': [],
+>>>>>>> 2d0e5b5859a900e9b7dc8af44d1896a5e9f4b610
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -136,6 +151,7 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
+<<<<<<< HEAD
     'default': dj_database_url.parse(
         'postgresql://postgres:szDjFHnHeRQGkSbmHDGDgVXkVyzepFDS@centerbeam.proxy.rlwy.net:35723/railway',
         conn_max_age=600
@@ -144,6 +160,15 @@ DATABASES = {
 
 
 
+=======
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+
+
+>>>>>>> 2d0e5b5859a900e9b7dc8af44d1896a5e9f4b610
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
@@ -178,11 +203,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
+<<<<<<< HEAD
 STATIC_URL = '/static/'
+=======
+STATIC_URL = 'static/'
+>>>>>>> 2d0e5b5859a900e9b7dc8af44d1896a5e9f4b610
 
 MEDIA_URL = '/images/'
 
 STATICFILES_DIRS = [
+<<<<<<< HEAD
     BASE_DIR / 'static',
     BASE_DIR / 'frontend/build/static'    # Répertoire des fichiers statiques supplémentaires
 ]
@@ -199,6 +229,15 @@ CLOUDINARY_STORAGE = {
     'API_KEY': '638535641442651',
     'API_SECRET': '9Ek4PBO1OtwdSiAlXjby6Izc590',
 }
+=======
+    BASE_DIR / 'static'  # Répertoire des fichiers statiques supplémentaires
+]
+
+MEDIA_ROOT = 'static/images'
+
+# Default primary key field type
+# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
+>>>>>>> 2d0e5b5859a900e9b7dc8af44d1896a5e9f4b610
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 

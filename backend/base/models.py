@@ -20,7 +20,11 @@ class Product(models.Model):
         return self.name
 
 class Review(models.Model):
+<<<<<<< HEAD
     product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True, related_name='reviews')
+=======
+    product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True)
+>>>>>>> 2d0e5b5859a900e9b7dc8af44d1896a5e9f4b610
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     name = models.CharField(max_length=200, null=True, blank=True)
     rating = models.IntegerField(null=True, blank=True, default=0)
@@ -32,7 +36,10 @@ class Review(models.Model):
         return str(self.rating)
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2d0e5b5859a900e9b7dc8af44d1896a5e9f4b610
 class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     paymentMethod = models.CharField(max_length=200, null=True, blank=True)

@@ -1,15 +1,27 @@
 from django.shortcuts import render
+<<<<<<< HEAD
+=======
+#La classe JsonResponse permet de renvoyer une réponse JSON à un client. C'est très utile pour les API ou les projets avec des interfaces React ou Vue.js.
+
+>>>>>>> 2d0e5b5859a900e9b7dc8af44d1896a5e9f4b610
 
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.response import Response
+<<<<<<< HEAD
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from base.models import Product, Review
+=======
+from base.models import Product
+
+
+>>>>>>> 2d0e5b5859a900e9b7dc8af44d1896a5e9f4b610
 from base.serializers import ProductSerializer
 
 from rest_framework import status
 
+<<<<<<< HEAD
 
 @api_view(['GET'])
 def getProducts(request):
@@ -45,11 +57,19 @@ def getTopProducts(request):
     serializer = ProductSerializer(products, many=True)
     return Response(serializer.data)
 
+=======
+@api_view(['GET'])
+def getProducts(request):
+   products = Product.objects.all()
+   serializer = ProductSerializer(products, many=True)
+   return Response(serializer.data)
+>>>>>>> 2d0e5b5859a900e9b7dc8af44d1896a5e9f4b610
 
 @api_view(['GET'])
 def getProduct(request, pk):
     product = Product.objects.get(_id=pk)
     serializer = ProductSerializer(product, many=False)
+<<<<<<< HEAD
     return Response(serializer.data)
 
 
@@ -155,3 +175,8 @@ def createProductReview(request, pk):
         product.save()
 
         return Response('Review Added')
+=======
+    return Response(serializer.data)   
+
+
+>>>>>>> 2d0e5b5859a900e9b7dc8af44d1896a5e9f4b610
